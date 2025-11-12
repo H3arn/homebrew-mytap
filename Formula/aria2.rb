@@ -31,14 +31,9 @@ class Aria2 < Formula
       --without-libgmp
       --without-libnettle
       --without-libgcrypt
+      --without-appletls
+      --with-openssl
     ]
-    if OS.mac?
-      args << "--without-appletls"
-      args << "--with-openssl"
-    else
-      args << "--without-appletls"
-      args << "--with-openssl"
-    end
 
     system "./configure", *args, *std_configure_args
     system "make", "install"

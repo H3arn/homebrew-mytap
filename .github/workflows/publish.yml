@@ -34,10 +34,12 @@ jobs:
       - name: Push commits
         uses: Homebrew/actions/git-try-push@main
         with:
-          branch: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # CHANGE THIS: Push back to the PR branch, not main
+          branch: ${{ github.event.pull_request.head.ref }}
 
-      - name: Delete branch
-        if: github.event.pull_request.head.repo.fork == false
-        env:
-          BRANCH: ${{ github.event.pull_request.head.ref }}
-        run: git push --delete origin "$BRANCH"
+      # - name: Delete branch
+      #   if: github.event.pull_request.head.repo.fork == false
+      #   env:
+      #     BRANCH: ${{ github.event.pull_request.head.ref }}
+      #   run: git push --delete origin "$BRANCH"

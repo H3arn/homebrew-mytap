@@ -34,8 +34,6 @@ jobs:
       - name: Push commits
         uses: Homebrew/actions/git-try-push@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # CHANGE THIS: Push back to the PR branch, not main
           branch: ${{ github.event.pull_request.head.ref }}
 
       # - name: Delete branch

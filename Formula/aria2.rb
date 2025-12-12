@@ -1,5 +1,5 @@
 class Aria2 < Formula
-  desc "Download with resuming and segmented downloading, with openssl for macOS"
+  desc "Download with resuming and segmented downloading, enable openssl for macOS"
   homepage "https://aria2.github.io/"
   url "https://github.com/aria2/aria2/releases/download/release-1.37.0/aria2-1.37.0.tar.xz"
   sha256 "60a420ad7085eb616cb6e2bdf0a7206d68ff3d37fb5a956dc44242eb2f79b66b"
@@ -7,6 +7,13 @@ class Aria2 < Formula
   revision 1
 
   no_autobump! because: :requires_manual_review
+
+  bottle do
+    root_url "https://github.com/H3arn/homebrew-mytap/releases/download/aria2-1.37.0_1"
+    rebuild 1
+    sha256 arm64_tahoe:   "abc546ef91a9ec262bbfcab30a573502f4926bcd0b4429312e8b23d916e0f184"
+    sha256 arm64_sequoia: "e4a7a3b8ba16496b0984e8c1c7e29dd156641ff16c551d6aafdfd3691145c717"
+  end
 
   depends_on "pkgconf" => :build
   depends_on "libssh2"

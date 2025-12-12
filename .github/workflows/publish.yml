@@ -15,7 +15,6 @@ jobs:
       contents: write
       issues: read
       pull-requests: write
-      packages: write
     steps:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@main
@@ -40,7 +39,6 @@ jobs:
           echo "Bottle commit is $BOTTLE_COMMIT"
           
           # 2. Fetch and checkout the PR branch
-          # Quote variables to satisfy SC2086
           git fetch origin "$BRANCH"
           git checkout "$BRANCH"
           

@@ -8,6 +8,13 @@ class Aria2 < Formula
 
   no_autobump! because: :requires_manual_review
 
+  bottle do
+    root_url "https://github.com/H3arn/homebrew-mytap/releases/download/aria2-1.37.0_1"
+    rebuild 1
+    sha256 arm64_tahoe:   "abc546ef91a9ec262bbfcab30a573502f4926bcd0b4429312e8b23d916e0f184"
+    sha256 arm64_sequoia: "e4a7a3b8ba16496b0984e8c1c7e29dd156641ff16c551d6aafdfd3691145c717"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "libssh2"
   depends_on "openssl@3"
